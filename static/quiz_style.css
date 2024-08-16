@@ -1,0 +1,15 @@
+body  {
+  text-align: left;
+  
+}
+
+h1, h3 {
+  text-align: center;
+  color: teal;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+    cursor: pointer;
+}
+

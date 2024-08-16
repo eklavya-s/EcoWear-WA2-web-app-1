@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>EcoWear</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="dashboard">
+      <div class="dashboard-item">
+          <a href="{{ url_for('leaderboard') }}">Leaderboard</a>
+      </div>
+      <div class="dashboard-item">
+          <a href="{{ url_for('redeem') }}">Redeem</a>
+      </div>
+      <div class="dashboard-item">
+          <a href="{{ url_for('logout') }}">Logout</a>
+      </div>
+  </div>
+  <h1>EcoWear</h1>
+  <hr>
+  <h2>Your Profile</h2>
+  <p>Name: {{ session.username }}</p>
+  <p>Points: {{ total_points }}</p>
+  <p>Completed quizes: {{ total_quizes_done }}</p>
+  <hr>
+  <h1>Select quiz</h1>
+  <form action="/quiz1" method="post">
+    <button class="button" type="submit">Quiz 1</button>
+  </form>
+  <br><br>
+  <form action="/quiz2" method="post">
+    <button class="button" type="submit">Quiz 2</button>
+  </form>
+  <br><br>
+  <form action="/quiz3" method="post">
+    <button class="button" type="submit">Quiz 3</button>
+  </form>
+</body>
+</html>

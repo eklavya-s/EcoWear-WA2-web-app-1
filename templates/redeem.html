@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Redeem</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="store-container">
+      <form action="/redeem" method="POST">
+        {% for brand in brands %}
+          <div class="store">
+            <h2>{{ brand.brand }}</h2>
+            <img src="{{ url_for('static', filename='brand_images/' ~ brand.brand|lower ~ '.png') }}" alt="{{ brand.brand }} Logo">
+            <button type="submit" name="brand" value="{{ brand.brand }}" {% if total_points < 500 %}disabled{% endif %}>Redeem $10 Voucher (500 points)</button>
+          </div>
+          <br><br>
+        {% endfor %}
+
+        {% if total_points < 500 %}
+          <p style="color: red;">You do not have enough points to redeem any vouchers.</p>
+        {% endif %}
+      </form>
+    </div>
+</body>
+</html>

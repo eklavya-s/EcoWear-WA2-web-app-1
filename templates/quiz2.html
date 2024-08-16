@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>weekly quiz 2</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='quiz_style.css') }}">
+</head>
+<body>
+  <h1>Weekly Quiz 2</h1>
+  <hr>
+  <form action="/quiz2_submit", method="POST">
+        <h3>1. What is a major difference between fast fashion and sustainable fashion?</h3>
+        <input type="radio" name="q1" value="A"> A. Fast fashion focuses on quality, sustainable fashion focuses on quantity<br>
+        <input type="radio" name="q1" value="B"> B. Fast fashion is cheaper, sustainable fashion is more expensive<br>
+        <input type="radio" name="q1" value="C"> C. Fast fashion is slow to produce, sustainable fashion is quick<br>
+        <input type="radio" name="q1" value="D"> D. Fast fashion uses organic materials, sustainable fashion uses synthetic<br>
+
+        <h3>2. Which of the following describes a benefit of sustainable fashion?</h3>
+        <input type="radio" name="q2" value="A"> A. Increased waste production<br>
+        <input type="radio" name="q2" value="B"> B. Ethical labor practices<br>
+        <input type="radio" name="q2" value="C"> C. Low-quality materials<br>
+        <input type="radio" name="q2" value="D"> D. Rapid trend changes<br>
+
+        <h3>3. Fast fashion is often criticized for what reason?</h3>
+        <input type="radio" name="q3" value="A"> A. High cost<br>
+        <input type="radio" name="q3" value="B"> B. High durability<br>
+        <input type="radio" name="q3" value="C"> C. Environmental harm<br>
+        <input type="radio" name="q3" value="D"> D. Long production times<br>
+
+        <h3>4. Sustainable fashion brands often prioritize:</h3>
+        <input type="radio" name="q4" value="A"> A. Synthetic materials<br>
+        <input type="radio" name="q4" value="B"> B. Fast production<br>
+        <input type="radio" name="q4" value="C"> C. Ethical sourcing<br>
+        <input type="radio" name="q4" value="D"> D. Trendiness<br>
+
+        <h3>5. What is one negative impact of fast fashion on society?</h3>
+        <input type="radio" name="q5" value="A"> A. Job creation<br>
+        <input type="radio" name="q5" value="B"> B. Increased consumer choice<br>
+        <input type="radio" name="q5" value="C"> C. Worker exploitation<br>
+        <input type="radio" name="q5" value="D"> D. Lower prices<br>
+
+        <h3>6. How does sustainable fashion benefit workers?</h3>
+        <input type="radio" name="q6" value="A"> A. Higher wages<br>
+        <input type="radio" name="q6" value="B"> B. Longer hours<br>
+        <input type="radio" name="q6" value="C"> C. Poor working conditions<br>
+        <input type="radio" name="q6" value="D"> D. Lack of benefits<br>
+
+        <h3>7. Fast fashion contributes to pollution by:</h3>
+        <input type="radio" name="q7" value="A"> A. Reducing waste<br>
+        <input type="radio" name="q7" value="B"> B. Using organic materials<br>
+        <input type="radio" name="q7" value="C"> C. Generating textile waste<br>
+        <input type="radio" name="q7" value="D"> D. Promoting recycling<br>
+
+        <h3>8. What is a goal of sustainable fashion?</h3>
+        <input type="radio" name="q8" value="A"> A. Maximize profit<br>
+        <input type="radio" name="q8" value="B"> B. Speed up production<br>
+        <input type="radio" name="q8" value="C"> C. Minimize environmental impact<br>
+        <input type="radio" name="q8" value="D"> D. Follow rapid trends<br>
+
+        <h3>9. Which of the following is often true about fast fashion items?</h3>
+        <input type="radio" name="q9" value="A"> A. They are highly durable<br>
+        <input type="radio" name="q9" value="B"> B. They are produced ethically<br>
+        <input type="radio" name="q9" value="C"> C. They are inexpensive<br>
+        <input type="radio" name="q9" value="D"> D. They use organic cotton<br>
+
+        <h3>10. Sustainable fashion aims to:</h3>
+        <input type="radio" name="q10" value="A"> A. Increase production speed<br>
+        <input type="radio" name="q10" value="B"> B. Decrease costs at all levels<br>
+        <input type="radio" name="q10" value="C"> C. Follow the latest trends<br>
+        <input type="radio" name="q10" value="D"> D. Reduce environmental impact<br>
+        <input type="submit" value="submit" class="button">
+    </form>
+</body>
+</html>
