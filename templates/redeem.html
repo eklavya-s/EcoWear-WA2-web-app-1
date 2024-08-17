@@ -6,12 +6,14 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+  <h1>Redeem your points here!</h1>
+  <h1>You have {{ total_points }} points!</h1>
     <div class="store-container">
       <form action="/redeem" method="POST">
         {% for brand in brands %}
           <div class="store">
             <h2>{{ brand.brand }}</h2>
-            <img src="{{ url_for('static', filename='brand_images/' ~ brand.brand|lower ~ '.png') }}" alt="{{ brand.brand }} Logo">
+            <img src="{{ url_for('static', filename='brand_images/' ~ brand.brand ~ '.png') }}" alt="{{ brand.brand }} Logo">
             <button type="submit" name="brand" value="{{ brand.brand }}" {% if total_points < 500 %}disabled{% endif %}>Redeem $10 Voucher (500 points)</button>
           </div>
           <br><br>

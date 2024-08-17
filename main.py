@@ -5,7 +5,12 @@ app = Flask(__name__)
 app.secret_key = 'EcoWear'
 
 # Global dictionary to store user data
-user_data = {}
+user_data = {
+    'eklavya': {
+        "total_points": 1000,  # example points
+        "completed_quizzes": ['Quiz1', 'Quiz2']  # example completed quizzes
+    }
+}
 
 @app.route('/')
 def homepage():
@@ -162,13 +167,26 @@ def redeem():
     if request.method == 'POST':
         brand = request.form['brand']
         if total_points >= 500:
-            user_data[username]['total_points'] -= 500
-            vo
-            return 
+            voucher_code = None # inititalise
+            for item in brands:
+                if item['brand'] == brand:
+                    voucher_code = item['voucher']
+                    break
+
+            # deduct points 
+            if voucher_code:
+                user_data[username]['total_points'] -= 500
+                session['voucher_code'] = voucher_code
+                return redirect('/voucher_show')
         else:
             return redirect("/redeem")
 
     return render_template('redeem.html', total_points=total_points, brands=brands)
+
+@app.route('/voucher_show')
+def voucher_show():
+    voucher_code = session.get('voucher_code')
+    return render_template('voucher_show.html', voucher_code=voucher_code)
     
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

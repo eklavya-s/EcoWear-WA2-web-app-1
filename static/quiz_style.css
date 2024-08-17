@@ -3,7 +3,7 @@ body  {
   
 }
 
-h1, h3 {
+h1 {
   text-align: center;
   color: teal;
 }
@@ -13,3 +13,7 @@ input[type="radio"] {
     cursor: pointer;
 }
 
+h3 {
+  text-align: left;
+  color: teal;
+}
