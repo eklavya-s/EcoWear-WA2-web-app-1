@@ -37,7 +37,8 @@ def homepage():
     user_data = read_user_data()
     # if username not in user_data - defaults to {} if total points not in user_data - defaults to 0
     total_points = user_data.get(username, {}).get("total_points", 0)
-    return render_template("homepage.html", total_points=total_points)
+    total_quizzes_done = len(user_data.get(username).get("completed_quizzes"))
+    return render_template("homepage.html", total_points=total_points, total_quizzes_done=total_quizzes_done)
 
 @app.route("/register", methods=["GET", "POST"])
 def register():
