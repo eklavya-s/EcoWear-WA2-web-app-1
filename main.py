@@ -13,7 +13,8 @@ def read_user_data():
             username = row[0]
             password = row[1]
             total_points = int(row[2])
-            completed_quizzes = row[3].split(",") if row[3] else []
+            # convert completed_quizzes str into list of quizzes completed if it exists
+            completed_quizzes = row[3].split(",") if row[3] else [] 
             user_data[username] = {
                 "password": password,
                 "total_points": total_points,
@@ -23,7 +24,7 @@ def read_user_data():
 
 def write_user_data(user_data):
     with open("user_data.csv", "w", newline="") as file:
-        file.write("username,password,total_points,completed_quizzes\n")  # Adding header
+        file.write("username,password,total_points,completed_quizzes\n")
         for username, data in user_data.items():
             completed_quizzes_str = ",".join(data["completed_quizzes"])
             file.write(f"{username},{data['password']},{data['total_points']},{completed_quizzes_str}\n")
@@ -34,6 +35,7 @@ def homepage():
         return redirect("/login")
     username = session.get("username")
     user_data = read_user_data()
+    # if username not in user_data - defaults to {} if total points not in user_data - defaults to 0
     total_points = user_data.get(username, {}).get("total_points", 0)
     return render_template("homepage.html", total_points=total_points)
 
@@ -66,14 +68,14 @@ def login():
 
 @app.route("/logout")
 def logout():
-    session.pop("username", None)
+    session.pop("username")
     return redirect(url_for("login"))
 
 @app.route("/quiz1", methods=["POST"])
 def quiz1():
     username = session.get("username")
     user_data = read_user_data()
-    if "quiz1" in user_data.get(username, {}).get("completed_quizzes", []):
+    if "quiz1" in user_data.get(username).get("completed_quizzes"):
         return "You have already completed Quiz 1.", 403
     return render_template("quiz1.html")
 
@@ -81,7 +83,7 @@ def quiz1():
 def quiz2():
     username = session.get("username")
     user_data = read_user_data()
-    if "quiz2" in user_data.get(username, {}).get("completed_quizzes", []):
+    if "quiz2" in user_data.get(username).get("completed_quizzes"):
         return "You have already completed Quiz 2.", 403
     return render_template("quiz2.html")
 
@@ -89,7 +91,7 @@ def quiz2():
 def quiz3():
     username = session.get("username")
     user_data = read_user_data()
-    if "quiz3" in user_data.get(username, {}).get("completed_quizzes", []):
+    if "quiz3" in user_data.get(username).get("completed_quizzes"):
         return "You have already completed Quiz 3.", 403
     return render_template("quiz3.html")
 
@@ -170,6 +172,7 @@ def quiz3_submit():
 def leaderboard():
     user_data = read_user_data()
     unsorted_leaderboard = [(username, user_data[username]["total_points"]) for username in user_data]
+    # sort based on total_points -> index 1. sort from highest to lowest points
     sorted_leaderboard = sorted(unsorted_leaderboard, key=lambda x: x[1], reverse=True)
     return render_template("leaderboard.html", sorted_leaderboard=sorted_leaderboard)
 
