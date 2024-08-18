@@ -1,27 +1,27 @@
- EcoWear Web Application
+Inspiration
 
-What This Project Does
+The project was inspired by the desire to create an engaging and interactive web application where users can test their knowledge through quizzes, earn points, and redeem vouchers. The goal was to build a platform that not only educates but also rewards users for their participation. This is to curb the harsh impacts of fast fashion that has arised in the recent years. It alows users to understand and internalise the severity of the issue and what they can do to contribute
 
-The EcoWear web application is designed to educate users about sustainable fashion while providing a fun and interactive quiz system. The platform includes a point-based system where users can earn points by completing quizzes, track their progress on a leaderboard, and redeem their points for vouchers from sustainable fashion stores.
+What it does
 
-Why This Project Is Useful
+The web application allows users to register and log in to their accounts. Once logged in, users can participate in various quizzes, accumulate points based on their performance, and view their standing on a leaderboard. Users can also redeem points for vouchers from selected brands.
 
-This application promotes awareness about sustainable fashion, a crucial topic in today’s world. It gamifies learning by allowing users to earn points through quizzes and redeem them for rewards, encouraging continued engagement and reinforcing their understanding of the subject. By bringing awareness and rewarding users, it helps contribute to the larger goal of promoting environmentally-friendly fashion choices.
+How it’s built
 
-How to Use This Web App
+The application is built using Flask along with HTML and CSS . User data is stored in a CSV file, and the application logic handles tasks like user authentication, quiz management, points accumulation, and voucher redemption. Sessions are used to manage user states across different pages.
 
-Home Page
+Challenges encountered
 
-	•	Users can navigate the web page using the dashboard to either look at the leaderboard, redeem their points or logout
-	•	Leaderboard: Users can see the top performers on the leaderboard, which ranks participants based on their total points accumulated from completing quizzes.
-  
+One of the main challenges was managing user data effectively using CSV files, especially when handling updates to user scores and completed quizzes. Ensuring that the application correctly reads and writes to the CSV files without data loss or corruption was crucial. Another challenge was ensuring that users could not retake quizzes and accurately deducting points during voucher redemption.
 
-Quiz Pages
+Accomplishments that I’m proud of
 
-	•	Quizzes: The app offers multiple quizzes to test users’ knowledge of sustainable fashion. Each quiz has multiple-choice questions, and users earn points based on their performance.
-	•	Submitting Quizzes: Upon completing a quiz, users submit their answers, and points are awarded based on correct responses. Users are notified of their updated point total, and they can view their ranking on the leaderboard.
+Successfully implementing the quiz system, where users can take quizzes and receive immediate feedback based on their answers, was a significant accomplishment. Additionally, building the points-based reward system and integrating it with a voucher redemption feature added a meaningful incentive for users to participate actively.
 
-Redeem Page
+What I learned
 
-	•	Voucher Redemption: Users can redeem their accumulated points for vouchers from partnered sustainable fashion stores like Herd, Maria McManus, and Gabriela Hearst. Each voucher requires a certain number of points (e.g., 500 points for a $10 voucher).
-	•	Eligibility: Users can view available vouchers even if they do not have enough points to redeem them. If they attempt to redeem a voucher without sufficient points, the option will be disabled.
+Through this project, I learned how to manage user sessions in Flask, work with CSV files for data storage, and implement features like a leaderboard and a point redemption system. I also deepened my understanding of web development concepts, including routing, form handling, and template rendering in Flask.
+
+What’s next for 
+
+The next steps include transitioning from CSV file storage to a more robust database solution like SQLite or PostgreSQL, enhancing the interface of the application, and adding more quizzes with varied difficulty levels. Additionally, expanding the voucher system to include more brands and creating a more dynamic leaderboard.
